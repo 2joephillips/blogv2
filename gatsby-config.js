@@ -1,16 +1,16 @@
-require("dotenv").config()
+require('dotenv').config();
 
 const contentfulConfig = {
   spaceId: process.env.CONTENTFUL_SPACE_ID,
   accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
   host: process.env.CONTENTFUL_HOST,
-}
-const { spaceId, accessToken } = contentfulConfig
+};
+const { spaceId, accessToken } = contentfulConfig;
 
 if (!spaceId || !accessToken) {
   throw new Error(
-    "Contentful spaceId and the access token need to be provided."
-  )
+    'Contentful spaceId and the access token need to be provided.'
+  );
 }
 
 module.exports = {
@@ -21,15 +21,9 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `images`,
-        path: `${__dirname}/src/images`,
-      },
-    },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
+    `gatsby-transformer-remark`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -50,4 +44,4 @@ module.exports = {
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
   ],
-}
+};
