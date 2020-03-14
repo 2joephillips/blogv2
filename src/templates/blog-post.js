@@ -3,32 +3,34 @@ import { graphql } from 'gatsby';
 import Helmet from 'react-helmet';
 import get from 'lodash/get';
 import Img from 'gatsby-image';
-
+import Layout from '../components/layout';
 class BlogPostTemplate extends React.Component {
   render() {
     const post = get(this.props, 'data.contentfulBlogPost');
     const siteTitle = get(this.props, 'data.site.siteMetadata.title');
 
     return (
-      <div style={{ background: '#fff' }}>
-        <Helmet title={`${post.title} | ${siteTitle}`} />
-        <Img alt={post.title} fluid={post.heroImage.fluid} />
-        <div className="wrapper">
-          <h1 className="section-headline">{post.title}</h1>
-          <p
-            style={{
-              display: 'block',
-            }}
-          >
-            By: {post.author.name} on {post.publishDate}
-          </p>
-          <div
-            dangerouslySetInnerHTML={{
-              __html: post.body.childMarkdownRemark.html,
-            }}
-          />
+      <Layout>
+        <div style={{ background: '#fff' }}>
+          <Helmet title={`${post.title} | ${siteTitle}`} />
+          <Img alt={post.title} fluid={post.heroImage.fluid} />
+          <div className="wrapper">
+            <h1 className="section-headline">{post.title}</h1>
+            <p
+              style={{
+                display: 'block',
+              }}
+            >
+              By: {post.author.name} on {post.publishDate}
+            </p>
+            <div
+              dangerouslySetInnerHTML={{
+                __html: post.body.childMarkdownRemark.html,
+              }}
+            />
+          </div>
         </div>
-      </div>
+      </Layout>
     );
   }
 }
