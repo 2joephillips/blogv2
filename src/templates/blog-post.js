@@ -4,6 +4,7 @@ import Helmet from 'react-helmet';
 import get from 'lodash/get';
 import Img from 'gatsby-image';
 import Layout from '../components/layout';
+
 class BlogPostTemplate extends React.Component {
   render() {
     const post = get(this.props, 'data.contentfulBlogPost');
@@ -13,14 +14,14 @@ class BlogPostTemplate extends React.Component {
       <Layout>
         <div style={{ background: '#fff' }}>
           <Helmet title={`${post.title} | ${siteTitle}`} />
-          <Img alt={post.title} fluid={post.heroImage.fluid} />
-          <div className="wrapper">
-            <h1 className="section-headline">{post.title}</h1>
-            <p
-              style={{
-                display: 'block',
-              }}
-            >
+          <Img
+            className="heroImage"
+            alt={post.title}
+            fluid={post.heroImage.fluid}
+          />
+          <div className="content">
+            <h1>{post.title}</h1>
+            <p>
               By: {post.author.name} on {post.publishDate}
             </p>
             <div
