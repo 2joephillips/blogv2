@@ -14,10 +14,10 @@ class BlogPage extends React.Component {
     return (
       <Layout>
         <SEO title="Blog" />
-        <h1 className="is-size-1">Blog</h1>
-        <div className="tile is-ancestor">
-          <div className="tile is-parent">{postList}</div>
-        </div>
+        <h1 className="is-size-1-desktop is-size-2-touch has-text-centered is-uppercase">
+          Blog
+        </h1>
+        <div className="columns is-multiline">{postList}</div>
       </Layout>
     );
   }
