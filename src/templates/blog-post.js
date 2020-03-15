@@ -14,16 +14,18 @@ class BlogPostTemplate extends React.Component {
       <Layout>
         <div style={{ background: '#fff' }}>
           <Helmet title={`${post.title} | ${siteTitle}`} />
+          <section className="container content">
+            <h1>{post.title}</h1>
+            <p>
+              By: {post.author.name} on {post.publishDate}
+            </p>
+          </section>
           <Img
             className="heroImage"
             alt={post.title}
             fluid={post.heroImage.fluid}
           />
           <div className="content">
-            <h1>{post.title}</h1>
-            <p>
-              By: {post.author.name} on {post.publishDate}
-            </p>
             <div
               dangerouslySetInnerHTML={{
                 __html: post.body.childMarkdownRemark.html,
