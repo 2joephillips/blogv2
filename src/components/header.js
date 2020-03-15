@@ -6,9 +6,9 @@ import '../styles/main.scss';
 const Header = ({ siteTitle }) => (
   <nav className="navbar" role="navigation" aria-label="main navigation">
     <div className="navbar-brand">
-      <a className="navbar-item" href="https://bulma.io">
+      <Link to="/" className="navbar-item">
         {siteTitle}
-      </a>
+      </Link>
 
       <label
         role="button"
